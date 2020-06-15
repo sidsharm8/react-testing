@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 import "./App.css";
+import GuessedWords from "./guessed-words.component";
+import Congrats from "./congrats.component";
+
 
 class App extends React.Component {
-  constructor(props) {
+  /* constructor(props) {
     super(props);
 
     this.state = {
@@ -30,10 +33,19 @@ class App extends React.Component {
         error: true,
       });
     }
-  };
+  }; */
 
   render() {
-    const { counter, error } = this.state;
+    return (
+      <div className="App">
+        <h1>Jotto</h1>
+        <Congrats success={false} />
+        <GuessedWords
+          guessedWords={[{ guessedWord: "train", letterMatchCount: 3 }]}
+        />
+      </div>
+    );
+    /*   const { counter, error } = this.state;
     return (
       <div className="App" data-testid="component-app">
         <h1 data-testid="counter-display">Counter : {counter}</h1>
@@ -52,7 +64,7 @@ class App extends React.Component {
           Decrement Counter
         </button>
       </div>
-    );
+    ); */
   }
 }
 /* const App = () => {
