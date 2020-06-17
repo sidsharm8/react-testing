@@ -1,9 +1,10 @@
 import checkPropTypes from "check-prop-types";
 import rootReducer from "../src/reducers";
-import { createStore } from "redux";
+import { middlewares } from "../src/configureStore";
+import { createStore, applyMiddleware } from "redux";
 
 export const storeFactory = (initialState) => {
-  return createStore(rootReducer, initialState);
+  return createStore(rootReducer, initialState, applyMiddleware(...middlewares));
 };
 // get element by data-testid attribute
 export const getByTestId = (wrapper, val) =>
